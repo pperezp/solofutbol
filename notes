@@ -1,0 +1,22 @@
+# docker run -d -p 33066:3306 --name mysql57 -e MYSQL_ROOT_PASSWORD=123123 mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+# mysql -u root -p123123 -P 33066
+
+
+- Futbol Chileno
+    - Campeonatos
+        - Todos los campeonatos nacionales (año y escudo de equipo campeón)
+            - año
+            - imagen del equipo campeón
+            - descripción
+            - Tabla de posiciones
+            - Definicion: Nombre los equipos de la final y su resultado
+                - No todos los campeonatos lo tienen
+            - Partidos
+                - número de fecha
+                - fecha
+                - estadio
+                - equipo local
+                - equipo visita
+                - goles locales
+                - goles visita
+                - anotadores
