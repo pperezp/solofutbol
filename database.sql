@@ -4,8 +4,13 @@ USE only_football;
 
 CREATE TABLE team(
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    national_selection BOOLEAN NOT NULL,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    national_selection BOOLEAN DEFAULT FALSE NOT NULL
+);
+
+CREATE TABLE team_shield(
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    team_id INT NOT NULL,
     shield VARCHAR(2083) NOT NULL
 );
 
@@ -58,7 +63,9 @@ CREATE TABLE championship(
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     championship_date DATE NOT NULL,
-    description VARCHAR(500) NOT NULL
+    description VARCHAR(500) NOT NULL,
+    champion INT NOT NULL,
+    FOREIGN KEY(champion) REFERENCES team_year(id)
 );
 
 CREATE TABLE stadium(
@@ -105,3 +112,19 @@ CREATE TABLE match_goal_minute(
     minute INT NOT NULL,
     FOREIGN KEY(match_goal_id) REFERENCES match_goal(id)
 );
+
+SELECT * FROM team;
+SELECT * FROM team_shield;
+SELECT * FROM player;
+SELECT * FROM coach;
+SELECT * FROM referee;
+SELECT * FROM team_year;
+SELECT * FROM team_year_coach;
+SELECT * FROM team_year_player;
+SELECT * FROM team_year_player_photo;
+SELECT * FROM championship;
+SELECT * FROM stadium;
+SELECT * FROM football_match;
+SELECT * FROM match_referee;
+SELECT * FROM match_goal;
+SELECT * FROM match_goal_minute;
