@@ -61,4 +61,33 @@ INSERT INTO championship(name, championship_date, description, champion) VALUES
 ('Campeonato Nacional 1936', '1936-01-01', 'Audax Italiano campeón de la temporada 1936', 5),
 ('Campeonato Nacional 1937', '1937-01-01', 'Colo Colo 1937, campeón invicto', 2),
 ('Campeonato Nacional 1938', '1938-01-01', 'Magallanes campeón de la temporada 1938', 1),
-('Campeonato Nacional 1939', '1939-01-01', 'Colo Colo campeón de la temporada 1935', 2);
+('Campeonato Nacional 1939', '1939-01-01', 'Colo Colo campeón de la temporada 1935', 2),
+('Campeonato Nacional 1940', '1940-01-01', 'Universidad de Chile, Campeón 1940', 15),
+('Campeonato Nacional 1941', '1941-01-01', 'Colo Colo 1941, Campeón invicto de la mano de Francisco Platko', 2),
+('Campeonato Nacional 1942', '1942-01-01', 'Santiago Morning campeón de la temporada 1942', 13),
+('Campeonato Nacional 1943', '1943-01-01', 'Unión Española campeón de la temporada 1943', 4),
+('Campeonato Nacional 1944', '1944-01-01', 'Colo Colo 1944 campeón de la temporada 1944', 2),
+('Campeonato Nacional 1945', '1945-01-01', 'Green Cross, campeon 1945; parados de izquierda a derecha: 
+Juan Manuel Acuña, Nobel Biglieri, Emilio Converti, Criserio Zambrano, Mario Carmona, 
+Santiago Salfate; abajo de izquierda a derecha: Guillermo Jaime, Francisco Ruiz, 
+Jorge Araya, Juan Zarate, Luis Orlando.', 7),
+('Campeonato Nacional 1946', '1946-01-01', 'Audax Italiano campeón de la temporada 1946', 5);
+
+INSERT INTO champion_image (championship_id, image_url) VALUES
+(1,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/Magallanes%201933.jpg'),
+(2,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/magallanes%201934.jpg'),
+(5,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/colo%20colo%201937.jpg'),
+(6,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/magallanes%201938a.jpg'),
+(8,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/universidad%20de%20chile%201940.jpg'),
+(9,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/colo%20colo%201941.jpg'),
+(10,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/santiago%20morning%201942.jpg'),
+(13,'http://www.solofutbol.cl/futbol%20chileno/Campeonatos%20Nacionales/imagenes/green%20cross%201945.jpg');
+
+INSERT INTO team_year(team_id, year_date) VALUES
+(2, '1933-01-01'), (3, '1933-01-01'), (4, '1933-01-01'),
+(5, '1933-01-01'), (6, '1933-01-01'), (7, '1933-01-01'),
+(8, '1933-01-01');
+
+INSERT INTO stadium(name) VALUES
+('Santa Laura'),('Carabineros'),('Escuela Militar'),
+('Campos de Sports');

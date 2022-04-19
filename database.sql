@@ -68,6 +68,13 @@ CREATE TABLE championship(
     FOREIGN KEY(champion) REFERENCES team_year(id)
 );
 
+CREATE TABLE champion_image(
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    championship_id INT NOT NULL,
+    image_url VARCHAR(2083) NOT NULL,
+    FOREIGN KEY(championship_id) REFERENCES championship(id)
+);
+
 CREATE TABLE stadium(
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL
@@ -77,16 +84,22 @@ CREATE TABLE football_match(
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     match_number INT NOT NULL,
     match_date DATE NOT NULL,
-    stadium_id INT NOT NULL,
     local_team_id INT NOT NULL,
     visit_team_id INT NOT NULL,
     local_goals INT NOT NULL,
     visit_goals INT NOT NULL,
     championship_id INT NOT NULL,
-    FOREIGN KEY(stadium_id) REFERENCES stadium(id),
-    FOREIGN KEY(local_team_id) REFERENCES team(id),
-    FOREIGN KEY(visit_team_id) REFERENCES team(id),
+    FOREIGN KEY(local_team_id) REFERENCES team_year(id),
+    FOREIGN KEY(visit_team_id) REFERENCES team_year(id),
     FOREIGN KEY(championship_id) REFERENCES championship(id)
+);
+
+CREATE TABLE football_match_stadium(
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    match_id INT NOT NULL,
+    stadium_id INT NOT NULL,
+    FOREIGN KEY(match_id) REFERENCES football_match(id),
+    FOREIGN KEY(stadium_id) REFERENCES stadium(id)
 );
 
 CREATE TABLE match_referee(
@@ -123,8 +136,10 @@ SELECT * FROM team_year_coach;
 SELECT * FROM team_year_player;
 SELECT * FROM team_year_player_photo;
 SELECT * FROM championship;
+SELECT * FROM champion_image;
 SELECT * FROM stadium;
 SELECT * FROM football_match;
+SELECT * FROM football_match_stadium;
 SELECT * FROM match_referee;
 SELECT * FROM match_goal;
 SELECT * FROM match_goal_minute;
